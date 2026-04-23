@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { LogOut, FolderKanban, DownloadCloud, FileText } from "lucide-react";
+import Link from "next/link";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -79,12 +80,13 @@ export default async function DashboardPage() {
                   </p>
                 ) : (
                   projects.map((project) => (
-                    <div
+                    <Link
+                      href={`/dashboard/project/${project.id}`}
                       key={project.id}
-                      className="p-4 rounded-xl bg-obsidian-200 border border-obsidian-300"
+                      className="block p-4 rounded-xl bg-obsidian-200 border border-obsidian-300 hover:border-silver/50 hover:bg-obsidian-200/80 transition-all group"
                     >
                       <div className="flex justify-between items-start mb-2">
-                        <h3 className="font-medium text-silver-light">
+                        <h3 className="font-medium text-silver-light group-hover:text-silver transition-colors">
                           {project.title}
                         </h3>
                         <span className="text-xs px-2 py-1 rounded-full bg-obsidian text-silver-dark border border-obsidian-300">
@@ -94,6 +96,8 @@ export default async function DashboardPage() {
                       <p className="text-sm text-silver-dark mb-4">
                         {project.description}
                       </p>
+
+                      {/* Progress Bar */}
                       <div className="space-y-1">
                         <div className="flex justify-between text-xs text-silver-dark">
                           <span>Progress</span>
@@ -106,7 +110,7 @@ export default async function DashboardPage() {
                           />
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))
                 )}
               </div>
