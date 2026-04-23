@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  /* Obsidian Base Colors */
+  --color-obsidian: #0a0a0a;
+  --color-obsidian-100: #141414;
+  --color-obsidian-200: #1f1f1f;
+  --color-obsidian-300: #2e2e2e;
+
+  /* Silver Accent Colors */
+  --color-silver: #c0c0c0;
+  --color-silver-light: #f3f4f6;
+  --color-silver-dark: #8c8c8c;
+
+  /* Custom Gradients */
+  --background-image-silver-gradient: linear-gradient(
+    to bottom,
+    rgba(192, 192, 192, 0.15),
+    transparent
+  );
+  --background-image-silver-glow: radial-gradient(
+    circle at top,
+    rgba(192, 192, 192, 0.1),
+    transparent 40%
+  );
+}
+
+/* Base styles applied globally */
+@layer base {
+  body {
+    @apply bg-obsidian text-silver-light antialiased selection:bg-silver selection:text-obsidian;
+  }
+}
