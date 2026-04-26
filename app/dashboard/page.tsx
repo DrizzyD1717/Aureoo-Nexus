@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { LogOut, FolderKanban, DownloadCloud, FileText } from "lucide-react";
 import Link from "next/link";
+import FileUpload from "@/components/FileUpload";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -167,6 +168,7 @@ export default async function DashboardPage() {
               </div>
             </div>
           </div>
+          <FileUpload userId={user.id}></FileUpload>
         </div>
       </main>
     </div>
