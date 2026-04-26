@@ -55,7 +55,7 @@ export default async function ProjectDetailsPage({
 
       <main className="max-w-7xl mx-auto px-6 py-8 overflow-x-auto">
         {/* Pass the data to the Client Component */}
-        <KanbanBoard initialTasks={tasks || []} />
+        <KanbanBoard initialTasks={tasks || []} projectId={projectId} />
       </main>
     </div>
   );
